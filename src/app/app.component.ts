@@ -8,3 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'exercise';
 }
+
+export interface User{
+  name: string;
+  email: string;
+  phone: number;
+}

@@ -1,0 +1,14 @@
+<p>edit works!</p>
+<form [formGroup]="form" (ngSubmit) = "editUser(form.value)" >
+    <input type="text" class="fortextbox" name="name" placeholder="name" formControlName="name">
+    <br/>
+    <input type="password" class="fortextbox" name="password" placeholder="password" formControlName="password">
+    <br/>
+    <input type="text" class="fortextbox" name="email" placeholder="email" formControlName="email">
+    <br/>
+    <input type="text" class="fortextbox" name="phone" placeholder="phone" formControlName="phone">
+    <br/>
+    <input type="file" class="fortextbox" name="photo" placeholder="photo" formControlName="photo" (change)="fileProgress($event)">
+    <br/>
+    <input type="submit" class="forsubmit" value="edit">
+    </form>
