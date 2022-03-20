@@ -5,27 +5,30 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ServerApiService {
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'content-Type': 'application/json' }),
+  };
+
   constructor(private http: HttpClient) {}
 
+  
   login(user: String) {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'content-Type': 'application/json' }),
-    };
-   
-    return this.http.post('http://localhost:3000/login', user, httpOptions);
+      
+    return this.http.post('http://localhost:3000/login', user, this.httpOptions);
   }
 
   register(user: String) {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'content-Type': 'application/json' }),
-    };
-    return this.http.post('http://localhost:3000/register', user, httpOptions);
+    
+    return this.http.post('http://localhost:3000/register', user, this.httpOptions);
   }
 
   editUser(user: String) {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'content-Type': 'application/json' }),
-    };
-    return this.http.post('http://localhost:3000/edit', user, httpOptions);
+    
+    return this.http.post('http://localhost:3000/edit', user, this.httpOptions);
+  }
+
+  getAllItems(){
+    return this.http.get('http://localhost:3000/getAllItems', this.httpOptions);
   }
 }

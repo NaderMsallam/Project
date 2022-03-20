@@ -1,0 +1,8 @@
+<p>items works!</p>
+<button (click)="getAllItems()">getItems</button>
+
+<div *ngFor="let item of items">
+    {{item.title}}<br>
+    {{item.description}}<br>
+    {{item.price}}<br>
+</div>

@@ -14,7 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
-import { EditComponent } from './edit/edit.component'; 
+import { EditComponent } from './edit/edit.component';
+import { ItemsComponent } from './items/items.component'; 
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { EditComponent } from './edit/edit.component';
     ProfileComponent,
     NavbarComponent,
     EditComponent,
+    ItemsComponent,
   ],
   imports: [
     BrowserModule,
