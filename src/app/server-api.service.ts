@@ -28,7 +28,27 @@ export class ServerApiService {
     return this.http.post('http://localhost:3000/edit', user, this.httpOptions);
   }
 
+  getAllUsers(){
+    return this.http.get('http://localhost:3000/getAllUsers', this.httpOptions);
+  }
+
+  deleteUser(user:String) {
+    return this.http.post('http://localhost:3000/deleteUser',user, this.httpOptions);
+  }
+
   getAllItems(){
     return this.http.get('http://localhost:3000/getAllItems', this.httpOptions);
+  }
+
+  addItem(item:String) {
+    return this.http.post('http://localhost:3000/addItem',item, this.httpOptions);
+  }
+  
+  deleteItem(item:String) {
+    return this.http.post('http://localhost:3000/deleteItem',item, this.httpOptions);
+  }
+
+  editItem(item:String) {
+    return this.http.post('http://localhost:3000/editItem',item, this.httpOptions);
   }
 }

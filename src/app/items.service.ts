@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { ServerApiService } from './server-api.service';
 
 @Injectable({
@@ -8,13 +9,34 @@ export class ItemsService {
   Items:any;
   constructor(private api: ServerApiService) { }
 
-  getAllItems(){
-    this.api.getAllItems().subscribe((res:any)=>{
-      this.Items=res;
-      console.log(res);
+  deleteItem(item:any, callback:any){
+    this.api.deleteItem(JSON.stringify(item)).subscribe((res:any)=>{
+      callback(null, res);
     },(err:any)=>{
-      console.log(err);
-      
-    })
+      callback(err,null);
+    }) 
   }
+
+  addItem(item:any, callback:any){
+    this.api.addItem(JSON.stringify(item)).subscribe((res:any)=>{
+      console.log(res);
+      
+      callback(null,res);
+    },(err:any)=>{
+      callback(err,null);
+    });
+  }
+
+  editItem(item:any,callback:any){  
+    ( this.api.editItem(item)).subscribe((res)=>{
+     console.log(res);
+     callback(null,res);  
+         
+   },(error)=>{
+     console.log(error);
+     callback(error,null)
+     
+   })
+ }
+
 }

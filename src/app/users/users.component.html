@@ -1,0 +1,10 @@
+<p>users works!</p>
+<div *ngFor="let user of users">
+    {{user.email}}<br>
+    {{user.name}}<br>
+    {{user.password}}<br>
+    {{user.phone}}<br>
+    <img src="{{user.photo}}" alt="photoImg" height="400px" width="400px">
+    <button (click)="deleteUser(user)" >delete</button>
+    <button (click)="editUser(user)" >edit</button>
+</div>

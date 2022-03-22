@@ -53,4 +53,12 @@ export class UserService {
       
     })
   }
+
+  deleteUser(user:any, callback:any){
+    this.api.deleteUser(JSON.stringify(user)).subscribe((res:any)=>{
+      callback(null, res);
+    },(err:any)=>{
+      callback(err,null);
+    }) 
+  }
 }

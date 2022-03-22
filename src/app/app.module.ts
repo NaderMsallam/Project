@@ -15,7 +15,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { EditComponent } from './edit/edit.component';
-import { ItemsComponent } from './items/items.component'; 
+import { ItemsComponent } from './items/items.component';
+import { EditItemComponent } from './edit-item/edit-item.component';
+import { UsersComponent } from './users/users.component';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +29,8 @@ import { ItemsComponent } from './items/items.component';
     NavbarComponent,
     EditComponent,
     ItemsComponent,
+    EditItemComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

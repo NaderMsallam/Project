@@ -8,6 +8,8 @@
             <button *ngIf="!loggedIn" mat-menu-item routerLink="/register">Register</button>
             <button *ngIf="loggedIn; else logOut" mat-menu-item routerLink="/profile">Profile</button>
             <button *ngIf="loggedIn; else logOut" mat-menu-item routerLink="/login" (click)="setLogout()">Logout</button>
+            <button *ngIf="isAdmin && loggedIn; else logOut" mat-menu-item routerLink="/users">Users</button>
+            <button *ngIf="isAdmin && loggedIn; else logOut" mat-menu-item routerLink="/items">Items</button>
         </mat-menu>
        
 </mat-toolbar>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnyForUntypedForms, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TempUserService } from '../temp-user.service';
 import {UserService} from '../user.service';
 
 
@@ -17,11 +18,16 @@ export class EditComponent implements OnInit {
   user:any;
   changedPhoto:boolean=false;
 
-  constructor(private UserService: UserService, private router:Router) { }
+  constructor(private UserService: UserService, private router:Router, private tempUser: TempUserService) { }
 
   ngOnInit(): void {
     this.changedPhoto=false
-    this.user=this.UserService.user;
+    if(this.tempUser.AccessedByAdmin){
+      this.user=this.tempUser.user;
+    }else{
+       this.user=this.UserService.user;
+    }
+   
     console.log(this.user);
     
   this.form = new FormGroup({
@@ -49,8 +55,12 @@ export class EditComponent implements OnInit {
         this.registered=false;
       } else {
         console.log(res);
+        if(this.tempUser.AccessedByAdmin){
+          this.router.navigate(["/users"])
+        }else{
+          this.router.navigate(["/profile"]);
+        }
         
-        this.router.navigate(["/profile"]);
       }
     });
   }

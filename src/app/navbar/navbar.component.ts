@@ -9,13 +9,14 @@ import { UserService } from '../user.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  isAdmin: boolean = false;
   loggedIn:boolean=false;
   constructor(private isloggedIn: IsLoggedInService, private router:Router, private userService:UserService) { }
 
   ngOnInit(): void {
     this.isloggedIn.loginEvent.subscribe((login:any)=>{
       this.loggedIn=login;
+      if(this.userService.user.email=="Admin") this.isAdmin = true;
     })
     
   }
