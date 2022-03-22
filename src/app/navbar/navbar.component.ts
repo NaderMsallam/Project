@@ -6,24 +6,25 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
   isAdmin: boolean = false;
-  loggedIn:boolean=false;
-  constructor(private isloggedIn: IsLoggedInService, private router:Router, private userService:UserService) { }
+  loggedIn: boolean = false;
+  constructor(
+    private isloggedIn: IsLoggedInService,
+    private router: Router,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
-    this.isloggedIn.loginEvent.subscribe((login:any)=>{
-      this.loggedIn=login;
-      if(this.userService.user.email=="Admin") this.isAdmin = true;
-    })
-    
+    this.isloggedIn.loginEvent.subscribe((login: any) => {
+      this.loggedIn = login;
+      if (this.userService.user.email == 'Admin') this.isAdmin = true;
+    });
   }
 
-  setLogout(){
+  setLogout() {
     this.isloggedIn.setLoggedIn(false);
   }
-
-  
 }

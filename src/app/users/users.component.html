@@ -2,8 +2,13 @@
 <div *ngFor="let user of users">
     {{user.email}}<br>
     {{user.name}}<br>
+    {{user.lastName}}<br>
+    {{user.id}}<br>
     {{user.password}}<br>
     {{user.phone}}<br>
+    {{user.address.state}}<br>
+    {{user.address.street}}<br>
+    {{user.address.zip}}<br>
     <img src="{{user.photo}}" alt="photoImg" height="400px" width="400px">
     <button (click)="deleteUser(user)" >delete</button>
     <button (click)="editUser(user)" >edit</button>

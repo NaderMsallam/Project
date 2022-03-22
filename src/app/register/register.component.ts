@@ -10,15 +10,14 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   form: any;
-  registered:boolean = true;
-  fileData:any;
-  previewUrl:any;
+  registered: boolean = true;
+  fileData: any;
+  previewUrl: any;
   constructor(private UserService: UserService, private router: Router) {}
 
   ngOnInit(): void {
-
-    this.UserService.registered.subscribe((registered:any)=>{
-      this.registered=registered;
+    this.UserService.registered.subscribe((registered: any) => {
+      this.registered = registered;
     });
 
     this.form = new FormGroup({
@@ -27,35 +26,42 @@ export class RegisterComponent implements OnInit {
       password: new FormControl('', Validators.required),
       phone: new FormControl('', Validators.required),
       photo: new FormControl('', Validators.required),
+      lastName: new FormControl('', Validators.required),
+      id: new FormControl('', Validators.required),
+      role: new FormControl('customer', Validators.required),
+      address: new FormGroup({
+        street: new FormControl('', Validators.required),
+        state: new FormControl('', Validators.required),
+        zip: new FormControl('', Validators.required),
+      }),
     });
   }
 
   register(formValue: any) {
-    console.log("hoon");
-    formValue.photo=this.previewUrl;
+    console.log('hoon');
+    formValue.photo = this.previewUrl;
     console.log(formValue);
     this.UserService.register(formValue, (err: any, res: any) => {
-      if (res=='err') {
-        alert("nonono");
-        this.registered=false;
+      if (res == 'err') {
+        alert('nonono');
+        this.registered = false;
       } else {
         console.log(res);
-       
-        this.router.navigate(["/login"]);
+
+        this.router.navigate(['/login']);
       }
     });
   }
 
-  fileProgress(file:any){
-    this.fileData=<File> file.target.files[0];
-    if(this.fileData){
-      const reader=new FileReader();
+  fileProgress(file: any) {
+    this.fileData = <File>file.target.files[0];
+    if (this.fileData) {
+      const reader = new FileReader();
       reader.readAsDataURL(this.fileData);
-      reader.onload=(_event)=>{
-        this.previewUrl=reader.result;
+      reader.onload = (_event) => {
+        this.previewUrl = reader.result;
         console.log(reader.result);
-        
-      }
+      };
     }
   }
 }
