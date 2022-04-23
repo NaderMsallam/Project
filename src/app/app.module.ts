@@ -18,6 +18,24 @@ import { EditComponent } from './edit/edit.component';
 import { ItemsComponent } from './items/items.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
 import { UsersComponent } from './users/users.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+
+import {MatButtonModule} from '@angular/material/button';
+import { HomeComponent } from './home/home.component';
+import { ProductsComponent } from './products/products.component';
+import { OrdersComponent } from './orders/orders.component';
+import { ShopCartComponent } from './shop-cart/shop-cart.component'; 
+import { MatVideoModule } from 'mat-video';
+import { FooterComponent } from './footer/footer.component';
+import {MatCardModule} from '@angular/material/card'; 
+import { SocketioService } from './socketio.service';
+import {MatInputModule} from '@angular/material/input';
+import { ChatComponent } from './chat/chat.component';
+import { ContactComponent } from './contact/contact.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio'; 
 
 
 @NgModule({
@@ -31,6 +49,17 @@ import { UsersComponent } from './users/users.component';
     ItemsComponent,
     EditItemComponent,
     UsersComponent,
+    ChangePasswordComponent,
+    GalleryComponent,
+    AboutUsComponent,
+  
+    HomeComponent,
+    ProductsComponent,
+    OrdersComponent,
+    ShopCartComponent,
+    FooterComponent,
+    ChatComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,9 +70,15 @@ import { UsersComponent } from './users/users.component';
     HttpClientModule,
     MatToolbarModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatButtonModule,
+    MatVideoModule,
+    MatCardModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
   ],
-  providers: [],
+  providers: [SocketioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

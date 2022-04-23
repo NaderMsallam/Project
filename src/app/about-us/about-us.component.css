@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:center;
+    text-align:center;
+    align-items:center;
+   
+    gap: 20vh 20vh;
+    margin: 15vh;
+}
+.info{
+    flex: 1 1 auto;
+    align-self: center;
+}
+
+.address{
+
+    flex: 1;
+}

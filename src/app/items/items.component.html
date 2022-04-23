@@ -1,5 +1,5 @@
-<p>items works!</p>
 
+<div class="container">
 <form [formGroup]="itemForm" (ngSubmit) = "addItem(itemForm.value)" >
     <input type="text" class="fortextbox" name="title" placeholder="title" formControlName="title">
     <br/>
@@ -13,9 +13,18 @@
 
 
 <div *ngFor="let item of items">
-    {{item.title}}<br>
-    {{item.description}}<br>
-    {{item.price}}<br>
-    <button (click)="deleteItem(item)" >delete</button>
+   
+
+    <mat-card class="example-card">
+        <mat-card-title>{{item.title}}</mat-card-title>
+        <mat-card-subtitle>Price: {{item.price}} </mat-card-subtitle>
+        <mat-card-content>
+          <p>{{item.description}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="deleteItem(item)" >delete</button>
     <button (click)="editItem(item)" >edit</button>
+        </mat-card-actions>
+      </mat-card>
+</div>
 </div>

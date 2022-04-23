@@ -15,6 +15,7 @@ export class IsLoggedInService {
     return this.loginEvent.next(loggedIn);
   }
   getLoggedIn() {
+    
     return this.loggedIn;
   }
 }

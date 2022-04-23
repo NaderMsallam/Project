@@ -1,0 +1,13 @@
+.card {
+    width: 200px;
+   
+  
+  }
+  
+  .users{
+    display:flex;
+   flex-flow: wrap;
+   gap: 10px;
+   
+}
+

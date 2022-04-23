@@ -1,0 +1,25 @@
+
+<div class="container">
+<div  class="products" *ngFor="let product of products">
+    <!-- {{product.title}}<br>
+    {{product.description}}<br>
+    {{product.price}}<br>
+    
+    <button *ngIf="loggedIn; else logOut" (click)="addToCart(product)">add to shop cart</button> -->
+
+
+    <mat-card class="card">
+        <mat-card-title>{{product.title}}</mat-card-title>
+        <mat-card-subtitle>Price: {{product.price}} </mat-card-subtitle>
+        <mat-card-content>
+          <p>{{product.description}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button *ngIf="loggedIn; else logOut" (click)="addToCart(product)">add to shop cart</button>
+        </mat-card-actions>
+      </mat-card>
+
+</div>
+
+</div>
+<ng-template #logOut> </ng-template>

@@ -1,16 +1,23 @@
-<p>profile works!</p>
 
-<h1>email: {{user.email}} </h1>
-<h1>name: {{user.name}}</h1> 
-<h1>lastName: {{user.lastName}}</h1> 
-<h1>id: {{user.id}}</h1> 
-<h1>phone: {{user.phone}}</h1>
-<h1>Address: </h1> 
-<h1>state: {{user.address.state}}</h1> 
-<h1>street: {{user.address.street}}</h1> 
-<h1>zip: {{user.address.zip}}</h1> 
-<img src="{{user.photo}}" alt="photoImg" height="400px" width="400px">
-<br/> <br/> <br/>
 
-<button (click)="editUser()">edit</button>
-
+<mat-card class="example-card">
+    <mat-card-header>
+      
+      <mat-card-title>{{user.name}} {{user.lastName}}</mat-card-title>
+      <mat-card-subtitle>id: {{user.id}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src={{user.photo}} max-height="400px" max-width="400px">
+    <mat-card-content>
+        <p>phone: {{user.phone}}</p>
+        <p>Address: </p> 
+        <p>state: {{user.address.state}}</p> 
+        <p>street: {{user.address.street}}</p> 
+        <p>zip: {{user.address.zip}}</p> 
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="editUser()">edit</button>
+<button mat-button (click)="changePassword()">change password</button>
+     
+    </mat-card-actions>
+  </mat-card>
+  

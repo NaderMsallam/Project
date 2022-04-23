@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 
+import {PassValidatorService} from '../pass-validator.service';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -13,7 +15,7 @@ export class RegisterComponent implements OnInit {
   registered: boolean = true;
   fileData: any;
   previewUrl: any;
-  constructor(private UserService: UserService, private router: Router) {}
+  constructor(private UserService: UserService, private router: Router, private PassValidatorService: PassValidatorService) {}
 
   ngOnInit(): void {
     this.UserService.registered.subscribe((registered: any) => {
@@ -24,6 +26,7 @@ export class RegisterComponent implements OnInit {
       name: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
+      confirmPassword: new FormControl('', Validators.required),
       phone: new FormControl('', Validators.required),
       photo: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
@@ -34,10 +37,43 @@ export class RegisterComponent implements OnInit {
         state: new FormControl('', Validators.required),
         zip: new FormControl('', Validators.required),
       }),
-    });
+    },{updateOn: 'submit'});
   }
 
+  get name(){
+    return this.form.get('name');
+  }
+  get email(){
+    return this.form.get('email');
+  }
+  get password(){
+    return this.form.get('password');
+  }
+  get confirmPassword(){
+    return this.form.get('confirmPassword');
+  }
+  get phone(){
+    return this.form.get('phone');
+  }
+  get lastName(){
+    return this.form.get('lastName');
+  }
+  get id(){
+    return this.form.get('id');
+  }
+  get street(){
+    return this.form.get('address').get('street');
+  }
+  get state(){
+    return this.form.get('address').get('state');
+  }
+  get zip(){
+    return this.form.get('address').get('zip');
+  }
+
+
   register(formValue: any) {
+    if(this.form.valid){
     console.log('hoon');
     formValue.photo = this.previewUrl;
     console.log(formValue);
@@ -51,6 +87,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/login']);
       }
     });
+  }
   }
 
   fileProgress(file: any) {

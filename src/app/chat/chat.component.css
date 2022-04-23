@@ -1,0 +1,24 @@
+.example-form {
+    min-width: 10vw;
+    max-width: 15vw; 
+    width: 100%;
+    bottom:30vh;
+    position: fixed;
+    right:0;
+    border-left: 10px solid rgb(66, 112, 176);
+   
+    border-top: 2px solid rgb(66, 112, 176);
+    border-bottom: 2px solid rgb(66, 112, 176);
+    border-radius: 10px;
+    background-color:white;
+  }
+.labelchat{
+   height: 20vh;
+   overflow-y:scroll;
+   
+}
+  .example-full-width {
+    width: 100%;
+    
+  }
+  

@@ -44,7 +44,7 @@ export class EditComponent implements OnInit {
         Validators.required,
         Validators.email,
       ]),
-      password: new FormControl(this.user.password, Validators.required),
+      
       phone: new FormControl(this.user.phone, Validators.required),
       photo: new FormControl(this.user.photo, Validators.required),
       lastName: new FormControl(this.user.lastName, Validators.required),
@@ -55,10 +55,42 @@ export class EditComponent implements OnInit {
         state: new FormControl(this.user.address.state, Validators.required),
         zip: new FormControl(this.user.address.zip, Validators.required),
       }),
-    });
+    },{updateOn: 'submit'});
+  }
+
+  get name(){
+    return this.form.get('name');
+  }
+  get email(){
+    return this.form.get('email');
+  }
+  get password(){
+    return this.form.get('password');
+  }
+  get confirmPassword(){
+    return this.form.get('confirmPassword');
+  }
+  get phone(){
+    return this.form.get('phone');
+  }
+  get lastName(){
+    return this.form.get('lastName');
+  }
+  get id(){
+    return this.form.get('id');
+  }
+  get street(){
+    return this.form.get('address').get('street');
+  }
+  get state(){
+    return this.form.get('address').get('state');
+  }
+  get zip(){
+    return this.form.get('address').get('zip');
   }
 
   editUser(formValue: any) {
+    if(this.form.valid){
     console.log('hoon');
     if (this.changedPhoto) {
       formValue.photo = this.previewUrl;
@@ -70,7 +102,7 @@ export class EditComponent implements OnInit {
     this.UserService.editUser(formValue, (err: any, res: any) => {
       if (res == 'err') {
         alert('nonono');
-        this.registered = false;
+       
       } else {
         console.log(res);
         if (this.tempUser.AccessedByAdmin) {
@@ -80,6 +112,7 @@ export class EditComponent implements OnInit {
         }
       }
     });
+  }
   }
 
   fileProgress(file: any) {
@@ -94,4 +127,5 @@ export class EditComponent implements OnInit {
       };
     }
   }
+  
 }

@@ -1,6 +1,6 @@
-<p>users works!</p>
+<div class="users">
 <div *ngFor="let user of users">
-    {{user.email}}<br>
+    <!-- {{user.email}}<br>
     {{user.name}}<br>
     {{user.lastName}}<br>
     {{user.id}}<br>
@@ -11,5 +11,29 @@
     {{user.address.zip}}<br>
     <img src="{{user.photo}}" alt="photoImg" height="400px" width="400px">
     <button (click)="deleteUser(user)" >delete</button>
-    <button (click)="editUser(user)" >edit</button>
+    <button (click)="editUser(user)" >edit</button> -->
+
+
+<mat-card class="card">
+    <mat-card-header>
+        
+      <mat-card-title>{{user.name}} {{user.lastName}}</mat-card-title>
+      <mat-card-subtitle>id: {{user.id}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src={{user.photo}} height="200px" width="200px">
+    <mat-card-content>
+        <p>phone: {{user.phone}}</p>
+        <p>Address: </p> 
+        <p>state: {{user.address.state}}</p> 
+        <p>street: {{user.address.street}}</p> 
+        <p>zip: {{user.address.zip}}</p> 
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="deleteUser(user)" >delete</button>
+        <button mat-button (click)="editUser(user)" >edit</button>
+        
+    </mat-card-actions>
+  </mat-card>
+
+</div>
 </div>

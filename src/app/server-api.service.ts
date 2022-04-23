@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ServerApiService {
 
   httpOptions = {
-    headers: new HttpHeaders({ 'content-Type': 'application/json' }),
+    headers: new HttpHeaders({ 'content-Type': 'application/json' }),withCredentials: true 
   };
 
   constructor(private http: HttpClient) {}
@@ -18,6 +18,9 @@ export class ServerApiService {
     return this.http.post('http://localhost:3000/login', user, this.httpOptions);
   }
 
+  logout(){
+    return this.http.get('http://localhost:3000/logout', this.httpOptions);
+  }
   register(user: String) {
     
     return this.http.post('http://localhost:3000/register', user, this.httpOptions);
@@ -26,6 +29,15 @@ export class ServerApiService {
   editUser(user: String) {
     
     return this.http.post('http://localhost:3000/edit', user, this.httpOptions);
+  }
+
+  changePassword(user: String) {
+    
+    return this.http.post('http://localhost:3000/changePassword', user, this.httpOptions);
+  }
+
+  getUserByToken() {
+    return this.http.get('http://localhost:3000/getUserByToken', this.httpOptions);
   }
 
   getAllUsers(){
@@ -51,4 +63,12 @@ export class ServerApiService {
   editItem(item:String) {
     return this.http.post('http://localhost:3000/editItem',item, this.httpOptions);
   }
+
+  addOrder(order:String) {
+    return this.http.post('http://localhost:3000/addOrder',order, this.httpOptions);
+  }
+  getAllOrders(email:String) {
+    return this.http.get(`http://localhost:3000/getAllOrders?email=${email}`, this.httpOptions);
+  }
+ 
 }

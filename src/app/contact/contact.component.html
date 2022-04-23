@@ -1,0 +1,38 @@
+<form [formGroup]="TextForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Contact Info</mat-card-title>
+    </mat-card-header> 
+    <br />
+    <p>054xxxxxxx | Haifa | nader11.nm@gmail.com</p>
+    <p>or leave us a message</p>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Subject" formControlName="subject">
+            <mat-error *ngIf="TextForm.controls['subject'].hasError('required')">
+              subject is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+     
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="Text" formControlName="Text"></textarea>
+            <mat-error *ngIf="TextForm.controls['Text'].hasError('required')">
+              some text is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+     
+     
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

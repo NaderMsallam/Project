@@ -1,0 +1,15 @@
+.card {
+    width: 400px;
+    box-sizing: border-box;
+  
+  }
+  .products{
+       display:flex;
+      flex-flow: wrap;
+      justify-content: center;
+      gap: 10px;
+      width: 50%;
+  }
+  
+
+  

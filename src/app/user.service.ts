@@ -4,25 +4,28 @@ import { IsLoggedInService } from './is-logged-in.service';
 import { Subject } from 'rxjs';
 import { User } from './app.component';
 
+
+
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   user: any;
   registered = new Subject();
-
+  token:any;
   constructor(
     private api: ServerApiService,
-    private isloggedIn: IsLoggedInService
+    private isloggedIn: IsLoggedInService,
+    
   ) {}
 
+  
   login(user: any, callback: any) {
     console.log(user);
     this.api.login(JSON.stringify(user)).subscribe(
-      (res: any) => {
-        this.user = res;
-        console.log('heereeeee');
-        console.log(res);
+      (res: any) => { 
+       
+       this.user=res;
         this.isloggedIn.setLoggedIn(true);
         callback(false, res);
       },
@@ -52,13 +55,28 @@ export class UserService {
       (res) => {
         console.log(res);
         callback(null, res);
-        this.user = user;
+        this.user = res;
       },
       (error) => {
         console.log(error);
         callback(error, null);
       }
     );
+  }
+
+  changePassword(user: any, callback: any) {
+    this.api.changePassword(user).subscribe((res) => {
+      callback(null, res);
+      this.user=res;
+      console.log('password changed, new user:');
+      console.log(res);
+      
+      
+    },(err)=>{
+      console.log(err);
+      callback(err,null)
+      
+    })
   }
 
   deleteUser(user: any, callback: any) {
