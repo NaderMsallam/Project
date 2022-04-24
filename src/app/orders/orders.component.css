@@ -5,7 +5,7 @@
   }
   .orders{
        display:flex;
-      flex-flow: wrap;
+      flex-direction: column;
       justify-content: center;
       gap: 10px;
       width: 50%;

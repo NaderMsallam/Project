@@ -3,10 +3,11 @@
     box-sizing: border-box;
   
   }
-  .products{
-       display:flex;
-      flex-flow: wrap;
+  .productslist{
+      display:flex;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       gap: 10px;
       width: 50%;
   }

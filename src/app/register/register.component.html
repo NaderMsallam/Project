@@ -1,5 +1,9 @@
 
 <form [formGroup]="form" #f="ngForm" (ngSubmit)="register(form.value)">
+  <mat-card class="shipping-card">
+  <h1>Registration form</h1>
+  <h3>please fill all fields bellow</h3>
+ 
   <input type="text" class="fortextbox" name="email" placeholder="email" formControlName="email">
   <span *ngIf="f.submitted && email.invalid " class="alert">
 
@@ -53,4 +57,5 @@
     (change)="fileProgress($event)">
   <br />
   <input type="submit" class="forsubmit" value="register">
+</mat-card>
 </form>

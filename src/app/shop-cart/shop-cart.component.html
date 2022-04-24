@@ -1,5 +1,5 @@
 
-<div class="products">
+<div class="productslist">
 <div *ngFor="let product of products">
     <mat-card class="card">
         <mat-card-title>{{product.title}}</mat-card-title>
@@ -11,4 +11,6 @@
       </mat-card>
 </div>
 </div>
-<button (click)="addOrder()">buy all</button>
+<button *ngIf="products.length > 0; else empty;" mat-button color="accent"  (click)="addOrder()">buy all</button>
+
+<ng-template #empty> <h1>no items found in the shopping cart ! </h1></ng-template>
