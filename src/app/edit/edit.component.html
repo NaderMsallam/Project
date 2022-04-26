@@ -1,5 +1,6 @@
 
 <form [formGroup]="form" #f="ngForm" (ngSubmit)="editUser(form.value)">
+  <mat-card class="box">
   <input type="text" class="fortextbox" name="email" placeholder="email" formControlName="email" />
   <span *ngIf="f.submitted && email.invalid" class="alert">
     <span *ngIf="email.errors?.['required']"> Email is required. </span>
@@ -48,4 +49,5 @@
     (change)="fileProgress($event)" />
   <br />
   <input type="submit" class="forsubmit" value="edit" />
+</mat-card>
 </form>

@@ -29,11 +29,13 @@ export class UsersComponent implements OnInit, OnDestroy {
   getAllUsers() {
     this.subscription = this.api.getAllUsers().subscribe(
       (res: any) => {
+        
         this.users = res;
 
         console.log(res);
       },
       (err: any) => {
+       
         console.log(err);
       }
     );

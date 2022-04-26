@@ -10,7 +10,7 @@
           <p>{{product.description}}</p>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button color="accent" *ngIf="loggedIn; else logOut" (click)="addToCart(product)">add to shop cart</button>
+            <button mat-button color="accent" *ngIf="loggedIn; else logOut" (click)="addToCart(product)">add to shop cart <mat-icon>add_shopping_cart</mat-icon></button>
         </mat-card-actions>
       </mat-card>
 

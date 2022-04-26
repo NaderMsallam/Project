@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { SocketioService } from '../socketio.service';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-login',
@@ -11,14 +12,26 @@ import { SocketioService } from '../socketio.service';
 })
 export class LoginComponent implements OnInit {
   form: any;
+  checked:boolean =false;
   unauthorized: boolean = false;
   constructor(private UserService: UserService, private router: Router, private socketService: SocketioService) {}
 
   ngOnInit(): void {
+    if(localStorage.getItem('email')!==null){
+      this.checked=true;
+      const savedEmail=localStorage.getItem('email');
+      const savedPassword=localStorage.getItem('pass');
+      this.form = new FormGroup({
+        password: new FormControl(savedPassword, Validators.required),
+        email: new FormControl(savedEmail, [Validators.required, Validators.email]),
+      },{updateOn: "submit"});
+    }
+    else{
     this.form = new FormGroup({
       password: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
     },{updateOn: "submit"});
+  }
   }
 
   get email(){
@@ -27,6 +40,10 @@ export class LoginComponent implements OnInit {
 
   get password(){
     return this.form.get('password');
+  }
+
+  onSelectionChanged(arg: MatCheckboxChange) {
+    this.checked = arg.checked;
   }
 
   login(formValue: any) {
@@ -39,6 +56,16 @@ export class LoginComponent implements OnInit {
       } else {
         console.log(res);
         console.log('success');
+        if(this.checked==true) {
+        localStorage.setItem('email', this.form.value.email);
+        localStorage.setItem('pass', this.form.value.password);
+      }
+      else{
+        localStorage.removeItem('email');
+        localStorage.removeItem('pass');
+      }
+        console.log(localStorage.getItem('email'));
+        
         this.socketService.setupSocketConnection();
         this.router.navigate(['/home']);
       }

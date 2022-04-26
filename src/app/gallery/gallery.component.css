@@ -11,7 +11,7 @@
 
 .pic{
     -webkit-transform: rotate(1deg) skewY(1deg); 
--moz-transform: rotate(0.5deg) skewY(0.5deg);
+    -moz-transform: rotate(0.5deg) skewY(0.5deg);
     border: 1px solid;
     border-radius: 10px;
 }

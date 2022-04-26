@@ -1,6 +1,6 @@
 
 
-<mat-toolbar style="height:5.5vh" color="primary">
+<mat-toolbar style="height:64px" color="primary">
     
     <button mat-icon-button  
         [matMenuTriggerFor]="menu">
@@ -18,16 +18,16 @@
             Logout
         </button>
     </mat-menu>
-    <button *ngIf="isAdmin && loggedIn; else logOut" routerLink="/users">
+    <button mat-button *ngIf="isAdmin && loggedIn; else logOut" routerLink="/users">
         Users
     </button>
-    <button *ngIf="isAdmin && loggedIn; else logOut" routerLink="/items">
+    <button mat-button *ngIf="isAdmin && loggedIn; else logOut" routerLink="/items">
         Items
     </button>
-    <button *ngIf="loggedIn; else logOut" routerLink="/shop-cart">
+    <button mat-button *ngIf="loggedIn; else logOut" routerLink="/shop-cart">
         Shop Cart
     </button>
-    <button *ngIf="loggedIn; else logOut" routerLink="/orders">
+    <button mat-button *ngIf="loggedIn; else logOut" routerLink="/orders">
         Orders
     </button>
     <button mat-stroked-button  class="example-spacer" routerLink="/home">Home</button>

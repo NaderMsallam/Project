@@ -11,6 +11,11 @@
     border-bottom: 2px solid rgb(66, 112, 176);
     border-radius: 10px;
     background-color:white;
+    box-shadow: var(--ho, 0)
+  var(--vo,0)
+  var(--blur, 1rem)
+  var(--spread, 0)
+  var(--color, rgb(0 0 0 / .5));
   }
 .labelchat{
    height: 20vh;

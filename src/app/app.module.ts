@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Provider } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,7 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs'; 
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
@@ -36,7 +36,13 @@ import { ChatComponent } from './chat/chat.component';
 import { ContactComponent } from './contact/contact.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio'; 
+import { AuthInterceptor } from './interceptor.service';
+import {MatCheckboxModule} from '@angular/material/checkbox'
 
+const INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  useClass: AuthInterceptor,
+  multi: true }
 
 @NgModule({
   declarations: [
@@ -52,7 +58,7 @@ import { MatRadioModule } from '@angular/material/radio';
     ChangePasswordComponent,
     GalleryComponent,
     AboutUsComponent,
-  
+    
     HomeComponent,
     ProductsComponent,
     OrdersComponent,
@@ -77,8 +83,9 @@ import { MatRadioModule } from '@angular/material/radio';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
+    MatCheckboxModule
   ],
-  providers: [SocketioService],
+  providers: [SocketioService, INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

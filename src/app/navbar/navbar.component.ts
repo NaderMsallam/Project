@@ -24,16 +24,25 @@ export class NavbarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // if(localStorage.getItem('user')!==null){
+    //   this.loggedIn=true;
+    //   this.userService.user=localStorage.getItem('user');
+    //   if (this.userService.user.role == 'Admin') this.isAdmin = true;
+    // } else{
     this.isloggedIn.loginEvent.subscribe((login: any) => {
+      
+      
       this.loggedIn = login;
       if (this.userService.user.role == 'Admin') this.isAdmin = true;
-    });
+    }
+    );
+  // }
   }
 
   setLogout() {
     this.api.logout().subscribe((res)=>{
       console.log("fat logout");
-      
+      localStorage.removeItem('user');
       console.log(res);
     });
     

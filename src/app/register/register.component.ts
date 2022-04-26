@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidationErrors, AsyncValidatorFn } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 
@@ -15,18 +15,18 @@ export class RegisterComponent implements OnInit {
   registered: boolean = true;
   fileData: any;
   previewUrl: any;
-  constructor(private UserService: UserService, private router: Router, private PassValidatorService: PassValidatorService) {}
+  constructor(private UserService: UserService, private router: Router,private PassValidatorService: PassValidatorService) {}
 
   ngOnInit(): void {
     this.UserService.registered.subscribe((registered: any) => {
       this.registered = registered;
     });
-
+    
     this.form = new FormGroup({
       name: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
-      confirmPassword: new FormControl('', Validators.required),
+      confirmPassword: new FormControl('', [Validators.required]),
       phone: new FormControl('', Validators.required),
       photo: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
@@ -37,9 +37,12 @@ export class RegisterComponent implements OnInit {
         state: new FormControl('', Validators.required),
         zip: new FormControl('', Validators.required),
       }),
-    },{updateOn: 'submit'});
+    },{
+      validators: [PassValidatorService.match('password', 'confirmPassword')]
+    }
+    ,{ updateOn: 'submit' } as unknown as AsyncValidatorFn);
   }
-
+  
   get name(){
     return this.form.get('name');
   }

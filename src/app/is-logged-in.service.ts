@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,9 +13,11 @@ export class IsLoggedInService {
 
   setLoggedIn(loggedIn: boolean) {
     this.loggedIn = loggedIn;
+    
     return this.loginEvent.next(loggedIn);
   }
   getLoggedIn() {
+    
     
     return this.loggedIn;
   }

@@ -2,4 +2,15 @@
     max-width: 400px;
   }
   
-  
+  .box {
+    width: 400px;
+
+    margin: 20px auto;
+    
+    font-size: 1.1em;
+    box-shadow: var(--ho, 0)
+  var(--vo,0)
+  var(--blur, 1rem)
+  var(--spread, 0)
+  var(--color, rgb(0 0 0 / .5));
+  }

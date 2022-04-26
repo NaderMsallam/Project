@@ -1,6 +1,6 @@
 video {
     height: auto;
-    max-width: 70vw;
+    max-width: 100vw;
     
     
 }
@@ -13,6 +13,9 @@ video {
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin-top:10px;
-   gap: 1em;
+    gap: 1em;
   
+}
+.about{
+    width:50vw;
 }
