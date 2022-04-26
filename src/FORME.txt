@@ -1,0 +1,22 @@
+HTTPS:
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/rtfs0620.xyz/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/rtfs0620.xyz/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/rtfs0620.xyz/chain.pem', 'utf8’);
+const credentials = {
+key: privateKey,
+cert: certificate,
+ca: ca
+};
+const {createServer} = require('http');
+const https=require('https');
+
+createServer((req,res)=>{
+res.writeHead(301,{location:'https://rtfs0620.xyz'+pathname});
+res.write("heelo world");
+res.end();
+}) . lister(PORT, ()=>{console log ("server started");
+
+https.createServer(credentials ,(req,res)=>{
+res.write("helow from https");
+res.end
+}).listen(PORT,()=>{console log("https server started});
