@@ -73,7 +73,9 @@ export class RegisterComponent implements OnInit {
   get zip(){
     return this.form.get('address').get('zip');
   }
-
+  get photo(){
+    return this.form.get('photo');
+  }
 
   register(formValue: any) {
     if(this.form.valid){

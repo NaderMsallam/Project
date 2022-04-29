@@ -4,7 +4,7 @@
 </video>
 
 <div class="items">
-
+  <ng-container *ngIf="products">
 <div *ngFor="let product of products.slice(0, 3)">
     <mat-card class="card">
         <mat-card-title>{{product.title}}</mat-card-title>
@@ -17,6 +17,7 @@
 
     
 </div>
+</ng-container>
 </div>
 <h1>about us</h1>
 <div class="about">

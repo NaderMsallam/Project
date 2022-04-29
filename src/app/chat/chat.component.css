@@ -1,5 +1,5 @@
 .example-form {
-    min-width: 10vw;
+    min-width: 400px;
     max-width: 15vw; 
     width: 100%;
     bottom:30vh;
@@ -20,7 +20,7 @@
 .labelchat{
    height: 20vh;
    overflow-y:scroll;
-   
+   white-space: pre-wrap;
 }
   .example-full-width {
     width: 100%;

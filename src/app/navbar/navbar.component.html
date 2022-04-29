@@ -18,23 +18,24 @@
             Logout
         </button>
     </mat-menu>
-    <button mat-button *ngIf="isAdmin && loggedIn; else logOut" routerLink="/users">
-        Users
-    </button>
-    <button mat-button *ngIf="isAdmin && loggedIn; else logOut" routerLink="/items">
-        Items
-    </button>
-    <button mat-button *ngIf="loggedIn; else logOut" routerLink="/shop-cart">
-        Shop Cart
-    </button>
-    <button mat-button *ngIf="loggedIn; else logOut" routerLink="/orders">
-        Orders
-    </button>
     <button mat-stroked-button  class="example-spacer" routerLink="/home">Home</button>
     <button mat-stroked-button  class="example-spacer" routerLink="/products">Products</button>
     <button mat-stroked-button  class="example-spacer" routerLink="/gallery">Gallery</button>
     <button mat-stroked-button  class="example-spacer" routerLink="/contact-us">Contact Us</button>
     <button mat-stroked-button  class="example-spacer" routerLink="/about-us">About Us</button>
+    <button mat-flat-button color="warn" class="userButton" *ngIf="isAdmin && loggedIn; else logOut" routerLink="/users">
+        Users  
+    </button>
+    <button mat-flat-button color="warn" class="userButton" *ngIf="isAdmin && loggedIn; else logOut" routerLink="/items">
+        Items  
+    </button>
+    <button mat-flat-button color="warn" class="userButton" *ngIf="loggedIn; else logOut" routerLink="/shop-cart">
+        Shop Cart  
+    </button>
+    <button mat-flat-button color="warn" class="userButton" *ngIf="loggedIn; else logOut" routerLink="/orders">
+        Orders  
+    </button>
+    
 </mat-toolbar>
 
 <div class="main">

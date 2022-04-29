@@ -9,7 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs'; 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -38,6 +38,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio'; 
 import { AuthInterceptor } from './interceptor.service';
 import {MatCheckboxModule} from '@angular/material/checkbox'
+import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -83,7 +84,9 @@ const INTERCEPTOR_PROVIDER: Provider = {
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatFormFieldModule,
+    
   ],
   providers: [SocketioService, INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]

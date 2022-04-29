@@ -1,12 +1,17 @@
-<form *ngIf="loggedIn;" class="example-form" >
+<form *ngIf="loggedIn;" [formGroup]="form" #f="ngForm" class="example-form" (keydown.enter)="onKeyDownEvent($event,form.value)" (ngSubmit)="sendMessege(form.value)" >
     <div class="labelchat">  
         <mat-label>
     Hello {{user}}, I'm doug the chat bot ! how can i help you? <br/>
-        {{orders}}
+    1. view previous orders<br/>
+    2. view all products <br/>
+    3. place an order <br/>
+    4. view chat history <br/>
+        {{tempMessage}}
     </mat-label></div>
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Input</mat-label>
-        <input matInput >
-    </mat-form-field>
+    
+       
+        <input type="text" name="Message" formControlName="Message">
+        <button type="submit">send</button>
+    
   </form>
   

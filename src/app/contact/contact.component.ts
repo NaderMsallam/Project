@@ -19,6 +19,8 @@ export class ContactComponent {
   constructor(private fb: FormBuilder) {}
 
   onSubmit(): void {
-    alert('Thanks!');
+    if(this.TextForm.valid){
+     alert('Thanks!');
+  }
   }
 }

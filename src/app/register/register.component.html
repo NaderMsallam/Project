@@ -114,8 +114,9 @@
 
     <br />
     <Section formGroupName="address">
-      <h2>Address</h2>
+     
       <br />
+       <h3>Address: </h3>
       <div>
         <label for="street">Street: </label>
         <input
@@ -167,6 +168,9 @@
       formControlName="photo"
       (change)="fileProgress($event)"
     />
+    <span *ngIf="f.submitted && photo.invalid" class="alert">
+      please choose a profile picture</span
+    >
     <br />
     <br />
     <div>

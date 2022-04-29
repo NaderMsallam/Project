@@ -66,12 +66,16 @@ export class UserService {
 
   changePassword(user: any, callback: any) {
     this.api.changePassword(user).subscribe((res) => {
-      callback(null, res);
+      console.log('res from changepassword service: '+res);
+      if(res){
       this.user=res;
       console.log('password changed, new user:');
       console.log(res);
-      
-      
+       callback(null, res);
+      }
+      else{
+        callback(null,null)
+      }
     },(err)=>{
       console.log(err);
       callback(err,null)

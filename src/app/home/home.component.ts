@@ -18,7 +18,9 @@ export class HomeComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
-
+  get ProductsTitle() { return (this.products&&this.products.title) ? this.products.title : null }
+  get ProductsPrice() { return (this.products&&this.products.price) ? this.products.price : null }
+  get ProductsDescription() { return (this.products&&this.products.description) ? this.products.description : null }
   getAllItems() {
     this.subscription = this.api.getAllItems().subscribe(
       (res: any) => {

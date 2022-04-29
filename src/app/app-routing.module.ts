@@ -19,6 +19,7 @@ import { ShopCartComponent } from './shop-cart/shop-cart.component';
 import { ContactComponent } from './contact/contact.component';
 
 
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'contact-us', component: ContactComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'gallery', component: GalleryComponent },
+
   { path: 'orders', component: OrdersComponent, canActivate:[AuthGuard] },
   { path: 'shop-cart', component: ShopCartComponent, canActivate:[AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate:[AuthGuard] }, 

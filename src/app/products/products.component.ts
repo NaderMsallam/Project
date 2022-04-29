@@ -18,12 +18,13 @@ export class ProductsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getAllItems();
     this.loggedIn=this.isloggedIn.getLoggedIn();
+   
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
-
+  
   getAllItems() {
     this.subscription = this.api.getAllItems().subscribe(
       (res: any) => {
