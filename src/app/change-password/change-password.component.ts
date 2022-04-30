@@ -9,7 +9,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./change-password.component.css']
 })
 export class ChangePasswordComponent implements OnInit {
-  form:any;
+  form!:FormGroup;
   user:any;
   wrongPassword:boolean=false;
   constructor(private userService:UserService, private router:Router) { }
