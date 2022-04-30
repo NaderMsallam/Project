@@ -10,10 +10,18 @@ import { UserService } from '../user.service';
 })
 export class ShopCartComponent implements OnInit {
   products:any;
+  sum:number=0;
+  
   constructor(private ShopCartService: ShopCartService, private user: UserService, private orderService: OrderService) { }
 
   ngOnInit(): void {
     this.products=this.ShopCartService.shopCart;
+    for(let i = 0; i < this.products.length; i++){
+     
+        this.sum+=this.products[i].price;
+    }
+     
+    
   }
 
   addOrder(){

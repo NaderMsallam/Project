@@ -17,3 +17,9 @@
 .userButton{
   margin-left: 3px;
 }
+.logo{
+  
+  margin: 0 1vw;
+  max-height:64px;
+  width:auto;
+}

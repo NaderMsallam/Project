@@ -1,21 +1,21 @@
 
 <div class="orders">
-<div  *ngFor="let order of orders">
+<div  *ngFor="let order of orders; index as i;">
  <mat-card class="card">
 <mat-card-title>{{order.email}}</mat-card-title>
 {{order.date}} <br>
 <div *ngFor="let product of order.order">
-    
-        
         
         <mat-card-content>
             <h1>{{product.title}}</h1>
             <mat-card-subtitle>Price: {{product.price}} </mat-card-subtitle>
           <p>{{product.description}}</p>
         </mat-card-content>
-       
+      
    
 
-</div>   </mat-card>
+</div>   
+<h1 class="lista">Overall Price: {{overall[i]}}</h1>
+</mat-card>
 </div>
 </div>

@@ -70,5 +70,8 @@ export class ServerApiService {
   getAllOrders(email:String) {
     return this.http.get(`http://localhost:3000/getAllOrders?email=${email}`, this.httpOptions);
   }
+  AdminGetAllOrders() {
+    return this.http.get(`http://localhost:3000/AdminGetAllOrders`, this.httpOptions);
+  }
  
 }
