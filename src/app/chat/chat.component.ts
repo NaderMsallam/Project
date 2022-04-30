@@ -13,12 +13,12 @@ import { UserService } from '../user.service';
 export class ChatComponent implements OnInit,OnDestroy {
   loggedIn: boolean = false;
   user: any;
-  tempMessage='';
-  placingOrderSubscription:any;
+  tempMessage:string='';
+  placingOrderSubscription !: Subscription;
   placingOrder:boolean=false;
-  MessageHistory = '';
-  form:any;
-  subscription: any;
+  MessageHistory:string = '';
+  form !: FormGroup;
+  subscription !: Subscription;
   constructor(
     private socketService: SocketioService,
     private isloggedIn: IsLoggedInService,
@@ -47,29 +47,30 @@ export class ChatComponent implements OnInit,OnDestroy {
 ngOnDestroy(){
   this.tempMessage="";
   this.subscription.unsubscribe();
+  this.placingOrderSubscription.unsubscribe();
 }
 
   get f() { return this.form.controls; }
 
   onKeyDownEvent(e:any,formValue:any){
     e.preventDefault();
-    this.f.Message.reset();
+    this.f['Message'].reset();
     this.sendMessege(formValue);
   }
   sendMessege(formValue:any){
     //placing order mode
     if(this.placingOrder){
-      this.socketService.socket.emit('buyProduct', this.f.Message.value);
+      this.socketService.socket.emit('buyProduct', this.f['Message'].value);
       this.socketService.placingOrder.next(false);
     }
     //normal menu mode
     else{
-    this.socketService.socket.emit('hello', this.f.Message.value);
+    this.socketService.socket.emit('hello', this.f['Message'].value);
   }
     
 
     
-    this.f.Message.reset();
+    this.f['Message'].reset();
       console.log(formValue.Message);
       
    

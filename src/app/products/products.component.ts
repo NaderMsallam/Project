@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { IsLoggedInService } from '../is-logged-in.service';
 import { ServerApiService } from '../server-api.service';
 import {ShopCartService} from'../shop-cart.service';
@@ -11,7 +12,7 @@ import {ShopCartService} from'../shop-cart.service';
 export class ProductsComponent implements OnInit, OnDestroy {
 
   products: any
-  subscription: any;
+  subscription !: Subscription;
   loggedIn: boolean = false;
   constructor(private api: ServerApiService,private ShopCartService: ShopCartService,private isloggedIn: IsLoggedInService,) { }
 

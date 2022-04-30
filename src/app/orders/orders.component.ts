@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ServerApiService } from '../server-api.service';
 import { UserService } from '../user.service';
 
@@ -8,15 +9,19 @@ import { UserService } from '../user.service';
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.css']
 })
-export class OrdersComponent implements OnInit {
-  email: any;
+export class OrdersComponent implements OnInit, OnDestroy{
+  email !: string;
   isAdmin: boolean = false;
-  subscription:any;
+  subscription !: Subscription;
   orders:any;
   sum:number=0;
   overall:Array<number>=[];
   products:any;
   constructor(private userService: UserService, private api: ServerApiService) { }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   ngOnInit(): void {
     this.email=this.userService.user.email;

@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ServerApiService } from '../server-api.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { ServerApiService } from '../server-api.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, OnDestroy{
-  subscription: any;
+  subscription !: Subscription;
   products: any;
   constructor(private api: ServerApiService) { }
 

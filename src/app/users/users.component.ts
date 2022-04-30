@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ServerApiService } from '../server-api.service';
 import { TempUserService } from '../temp-user.service';
 import { UserService } from '../user.service';
@@ -11,7 +12,7 @@ import { UserService } from '../user.service';
 })
 export class UsersComponent implements OnInit, OnDestroy {
   users: any;
-  subscription: any;
+  subscription !: Subscription;
   constructor(
     private api: ServerApiService,
     private tempUser: TempUserService,

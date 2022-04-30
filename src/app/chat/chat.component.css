@@ -2,7 +2,7 @@
     min-width: 400px;
     max-width: 15vw; 
     width: 100%;
-    bottom:30vh;
+    bottom:2vh;
     position: fixed;
     right:0;
     border-left: 10px solid rgb(66, 112, 176);
@@ -26,4 +26,5 @@
     width: 100%;
     
   }
-  
+input{ width: 80%;}
+button{width: 15%}

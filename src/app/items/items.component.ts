@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ItemsService } from '../items.service';
 import { ServerApiService } from '../server-api.service';
 import { TempItemService } from '../temp-item.service';
@@ -11,8 +12,8 @@ import { TempItemService } from '../temp-item.service';
   styleUrls: ['./items.component.css'],
 })
 export class ItemsComponent implements OnInit, OnDestroy {
-  itemForm: any;
-  subscription: any;
+  itemForm !: FormGroup;
+  subscription !: Subscription;
 
   constructor(
     private itemsService: ItemsService,

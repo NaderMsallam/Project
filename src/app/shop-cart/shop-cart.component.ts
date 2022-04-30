@@ -35,6 +35,7 @@ export class ShopCartComponent implements OnInit {
         console.log(res);
         this.ShopCartService.emptyCart();
         this.products=[];
+        this.sum=0;
       }
     })
   }

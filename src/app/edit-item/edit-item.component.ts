@@ -10,7 +10,7 @@ import { TempItemService } from '../temp-item.service';
   styleUrls: ['./edit-item.component.css'],
 })
 export class EditItemComponent implements OnInit {
-  itemForm: any;
+  itemForm !: FormGroup;
   item: any;
   constructor(
     private tempItem: TempItemService,
