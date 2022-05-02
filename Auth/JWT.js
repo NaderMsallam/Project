@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const secret = "the world is round";
 
 function generateToken(user) {
-  let time = 60; // One minute
+  let time = 60*5; // five minutes
   return jwt.sign({ ...user }, secret, { expiresIn: time });
 }
 
