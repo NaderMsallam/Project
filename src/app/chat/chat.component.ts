@@ -54,8 +54,9 @@ ngOnDestroy(){
 
   onKeyDownEvent(e:any,formValue:any){
     e.preventDefault();
-    this.f['Message'].reset();
     this.sendMessege(formValue);
+    this.f['Message'].reset();
+   
   }
   sendMessege(formValue:any){
     //placing order mode
@@ -76,6 +77,9 @@ ngOnDestroy(){
    
 
     
+  }
+  saveHistory(){
+    this.socketService.saveHistory();
   }
   
 }

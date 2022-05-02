@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { IsLoggedInService } from '../is-logged-in.service';
 import { ServerApiService } from '../server-api.service';
 import {ShopCartService} from'../shop-cart.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-products',
@@ -14,7 +15,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   products: any
   subscription !: Subscription;
   loggedIn: boolean = false;
-  constructor(private api: ServerApiService,private ShopCartService: ShopCartService,private isloggedIn: IsLoggedInService,) { }
+  constructor(private api: ServerApiService,private ShopCartService: ShopCartService,private isloggedIn: IsLoggedInService,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getAllItems();
@@ -40,6 +41,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   addToCart(product:any){
+    this._snackBar.open("added item to shop cart","cancel")
     this.ShopCartService.addToCart(product.title,product.description,product.price);
   }
 

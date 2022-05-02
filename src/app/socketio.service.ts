@@ -102,10 +102,12 @@ export class SocketioService {
 
   }
   
+  saveHistory(){
+    this.socket.emit('saveHistory', this.tempMessage);
+  }
   disconnect() {
     if (this.socket) {
       this.MessageHistory.next("");
-      if(this.tempMessage!="")this.socket.emit('saveHistory', this.tempMessage);
       this.tempMessage="";
         this.socket.disconnect();
     }

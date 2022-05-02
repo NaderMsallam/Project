@@ -44,12 +44,13 @@ export class NavbarComponent implements OnInit {
       console.log("fat logout");
       localStorage.removeItem('user');
       console.log(res);
-    });
-    
-    this.isloggedIn.setLoggedIn(false);
+      this.isloggedIn.setLoggedIn(false);
     this.isAdmin=false;
     this.ShopCartService.emptyCart();
     this.socketService.disconnect();
+    });
+    
+    
   }
   
 }

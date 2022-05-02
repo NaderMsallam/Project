@@ -21,7 +21,7 @@ import { UsersComponent } from './users/users.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 import {MatButtonModule} from '@angular/material/button';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
@@ -86,7 +86,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
     MatRadioModule,
     MatCheckboxModule,
     MatFormFieldModule,
-    
+    MatSnackBarModule
   ],
   providers: [SocketioService, INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]

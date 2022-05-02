@@ -1,4 +1,6 @@
 <form *ngIf="loggedIn;" [formGroup]="form" #f="ngForm" class="example-form" (keydown.enter)="onKeyDownEvent($event,form.value)" (ngSubmit)="sendMessege(form.value)" >
+    <button mat-raised-button color="accent" (click)="saveHistory()">save history <mat-icon>bookmark</mat-icon></button>
+   
     <div class="labelchat">  
         <mat-label>
     Hello {{user}}, I'm doug the chat bot ! how can i help you? <br/>
