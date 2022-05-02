@@ -22,6 +22,12 @@
    overflow-y:scroll;
    white-space: pre-wrap;
 }
+.saveButton{
+  width:30%;
+  
+  margin-left:70%;
+ 
+}
   .example-full-width {
     width: 100%;
     

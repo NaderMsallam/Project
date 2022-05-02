@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 import { IsLoggedInService } from '../is-logged-in.service';
 import { SocketioService } from '../socketio.service';
@@ -23,6 +24,7 @@ export class ChatComponent implements OnInit,OnDestroy {
     private socketService: SocketioService,
     private isloggedIn: IsLoggedInService,
     private userService: UserService,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -78,7 +80,9 @@ ngOnDestroy(){
 
     
   }
-  saveHistory(){
+  saveHistory(e:any){
+    e.preventDefault();
+    this._snackBar.open("chat history saved","cancel")
     this.socketService.saveHistory();
   }
   
