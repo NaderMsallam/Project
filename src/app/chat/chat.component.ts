@@ -13,7 +13,7 @@ import { UserService } from '../user.service';
 })
 export class ChatComponent implements OnInit,OnDestroy {
   loggedIn: boolean = false;
-  user: any;
+  user: string='';
   tempMessage:string='';
   placingOrderSubscription !: Subscription;
   placingOrder:boolean=false;
