@@ -31,27 +31,27 @@ mongoose.connect(
 
 
 
-// const privateKey = fs.readFileSync('https://rt-dev.xyz/etc/letsencrypt/live/rtfs0620.xyz/privkey.pem', 'utf8');
-// const certificate = fs.readFileSync('https://rt-dev.xyz/etc/letsencrypt/live/rtfs0620.xyz/cert.pem', 'utf8');
-// const ca = fs.readFileSync('https://rt-dev.xyz/etc/letsencrypt/live/rtfs0620.xyz/chain.pem', 'utf8');
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/rt-dev.xyz/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/rt-dev.xyz/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/rt-dev.xyz/chain.pem', 'utf8');
 
-// const credentials = {
-//     key: privateKey,
-//     cert: certificate,
-//     ca: ca
-// };
-// const Server = https.createServer(credentials, app);
+const credentials = {
+    key: privateKey,
+    cert: certificate,
+    ca: ca
+};
+const Server = https.createServer(credentials, app);
 
-// const http = require("http").createServer((req, res) => {
-//     let pathname = url.parse(req.url).pathname;
-//     res.writeHead(301, { Location: "https://" + pathname });
-//     res.end();
-// });
+const http = require("http").createServer((req, res) => {
+    let pathname = url.parse(req.url).pathname;
+    res.writeHead(301, { Location: "https://" + pathname });
+    res.end();
+});
 
-const http = require("http").createServer(app);
+//const http = require("http").createServer(app);
 //socket conenction
 
-const io = require("socket.io")(http, {
+const io = require("socket.io")(Server, {
     cors: {
         origins: ["http://localhost:4200"],
     },
