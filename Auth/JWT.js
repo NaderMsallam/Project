@@ -1,43 +1,44 @@
 const jwt = require("jsonwebtoken");
 
-const secret = "the world is round";
+const SECRET = "the world is round";
+const TIME = 60 * 5; // five minutes
 
 function generateToken(user) {
-  let time = 60*5; // five minutes
-  return jwt.sign({ ...user }, secret, { expiresIn: time });
+
+    return jwt.sign({...user }, SECRET, { expiresIn: TIME });
 }
 
 function validateToken(req, res, next) {
-  if (!req.cookies) req.cookies = {};
+    if (!req.cookies) req.cookies = {};
 
-  const token = req.cookies.tokenCookie;
-  console.log(token);
-  jwt.verify(token, secret, (err, data) => {
-    if (err) {
-      res.status(403).send("Invalided token");
-    } else {
-      return next();
-    }
-  });
+    const token = req.cookies.tokenCookie;
+    console.log(token);
+    jwt.verify(token, SECRET, (err, data) => {
+        if (err) {
+            res.status(403).send("Invalided token");
+        } else {
+            return next();
+        }
+    });
 }
 
 function validateAdminToken(req, res, next) {
-  if (!req.cookies) req.cookies = {};
+    if (!req.cookies) req.cookies = {};
 
-  const token = req.cookies.tokenCookie;
-  console.log(token);
-  jwt.verify(token, secret, (err, data) => {
-   
-    if (err) {
-     
-      res.status(403).send("Invalided token");
-    } else if (data.role != "Admin") {
-      console.log("entered not admin");
-      return res.status(403).send("Invalided token");
-    } else {
-    
-      return next();
-    }
-  });
+    const token = req.cookies.tokenCookie;
+    console.log(token);
+    jwt.verify(token, SECRET, (err, data) => {
+
+        if (err) {
+
+            res.status(403).send("Invalided token");
+        } else if (data.role != "Admin") {
+            console.log("entered not admin");
+            return res.status(403).send("Invalided token");
+        } else {
+
+            return next();
+        }
+    });
 }
 module.exports = { generateToken, validateToken, validateAdminToken };
