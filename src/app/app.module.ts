@@ -27,7 +27,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ShopCartComponent } from './shop-cart/shop-cart.component'; 
-import { MatVideoModule } from 'mat-video';
+
 import { FooterComponent } from './footer/footer.component';
 import {MatCardModule} from '@angular/material/card'; 
 import { SocketioService } from './socketio.service';
@@ -79,7 +79,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
-    MatVideoModule,
+   
     MatCardModule,
     MatInputModule,
     MatSelectModule,

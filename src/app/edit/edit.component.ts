@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from '../app.component';
 import { TempUserService } from '../temp-user.service';
 import { UserService } from '../user.service';
 
@@ -17,9 +18,9 @@ import { UserService } from '../user.service';
 export class EditComponent implements OnInit {
   fileData: any;
   previewUrl: any;
-  form: any;
+  form !: FormGroup;
   registered: boolean = true;
-  user: any;
+  user !: User;
   changedPhoto: boolean = false;
 
   constructor(
@@ -80,13 +81,13 @@ export class EditComponent implements OnInit {
     return this.form.get('id');
   }
   get street(){
-    return this.form.get('address').get('street');
+    return this.form.get('address')!.get('street');
   }
   get state(){
-    return this.form.get('address').get('state');
+    return this.form.get('address')!.get('state');
   }
   get zip(){
-    return this.form.get('address').get('zip');
+    return this.form.get('address')!.get('zip');
   }
 
   editUser(formValue: any) {

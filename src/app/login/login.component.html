@@ -1,37 +1,37 @@
-
 <form [formGroup]="form" #f="ngForm" (ngSubmit)="login(form.value)">
-  <mat-card class="box">
-  <h1>Login</h1>
-  <div>
-    <label for="">Email: </label>
-    <input type="text" class="fortextbox" name="email" placeholder="email" formControlName="email" />
-    <span *ngIf="f.submitted && email.invalid "
-    class="alert">
+    <mat-card class="box">
+        <h1>Login</h1>
+        <div>
+            <label for="">Email: </label>
+            <input type="text" class="fortextbox" name="email" placeholder="email" formControlName="email" />
+            <span *ngIf="f.submitted && email?.invalid " class="alert">
 
-  <span *ngIf="email.errors?.['required']">
+  <span *ngIf="email?.errors?.['required']">
     email is required.
   </span>
-  <span *ngIf="email.errors?.['email']">
+            <span *ngIf="email?.errors?.['email']">
     wrong email format.
   </span>
-  
-</span></div>
-    <br />
-    <div>
-    <label for="">Password: </label>
-    <input type="password" class="fortextbox" name="password" placeholder="password" formControlName="password" />
-    <span *ngIf="f.submitted && password.invalid "
-    class="alert">
 
-  <span *ngIf="password.errors?.['required']">
+            </span>
+        </div>
+        <br />
+        <div>
+            <label for="">Password: </label>
+            <input type="password" class="fortextbox" name="password" placeholder="password" formControlName="password" />
+            <span *ngIf="f.submitted && password?.invalid " class="alert">
+
+  <span *ngIf="password?.errors?.['required']">
     Password is required.
   </span>
-    </span> </div>
-    <br>
-    <br>
-    <div>
-    <input  type="submit" class="forsubmit" value="Log In" />  <mat-checkbox  class="example-margin" [checked]='checked' (change)="onSelectionChanged($event)">Remember me</mat-checkbox>
-</div>
-<div class="alert" *ngIf="unauthorized"> wrong email/pass </div>
-</mat-card>
+            </span>
+        </div>
+        <br>
+        <br>
+        <div>
+            <input type="submit" class="forsubmit" value="Log In" />
+            <mat-checkbox class="example-margin" [checked]='checked' (change)="onSelectionChanged($event)">Remember me</mat-checkbox>
+        </div>
+        <div class="alert" *ngIf="unauthorized"> wrong email/pass </div>
+    </mat-card>
 </form>

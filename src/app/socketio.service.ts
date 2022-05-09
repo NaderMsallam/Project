@@ -10,9 +10,9 @@ import { UserService } from './user.service';
 export class SocketioService {
 
   socket:any;
-  user:any;
-  orders:any;
-  message:any;
+ 
+
+  message='';
   Message='';
   tempMessage='';
   MessageHistory=new Subject();

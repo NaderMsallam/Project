@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Item } from '../app.component';
 import { ItemsService } from '../items.service';
 import { ServerApiService } from '../server-api.service';
 import { TempItemService } from '../temp-item.service';
@@ -21,7 +22,7 @@ export class ItemsComponent implements OnInit, OnDestroy {
     private router: Router,
     private tempItem: TempItemService
   ) {}
-  items: any;
+  items !: Item[];
   ngOnInit(): void {
     //this.itemsService.getAllItems();
 
@@ -47,6 +48,7 @@ export class ItemsComponent implements OnInit, OnDestroy {
         this.getAllItems();
       }
     });
+    this.itemForm.reset();
   }
 
   editItem(formValue: any) {

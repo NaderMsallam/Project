@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
+import { User } from './app.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TempUserService {
-  user:any;
+  user!:User;
   AccessedByAdmin: boolean= false;
   constructor() { }
-  setUser(user:any){
+  setUser(user:User){
     this.user=user;
     this.AccessedByAdmin=true;
   }

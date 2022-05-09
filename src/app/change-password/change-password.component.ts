@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from '../app.component';
 import { UserService } from '../user.service';
 
 @Component({
@@ -9,8 +10,8 @@ import { UserService } from '../user.service';
   styleUrls: ['./change-password.component.css']
 })
 export class ChangePasswordComponent implements OnInit {
-  form:any;
-  user:any;
+  form !:FormGroup;
+  user!:User;
   wrongPassword:boolean=false;
   constructor(private userService:UserService, private router:Router) { }
 

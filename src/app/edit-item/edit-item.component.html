@@ -1,11 +1,15 @@
-
-
-<form [formGroup]="itemForm" (ngSubmit) = "editItem(itemForm.value)" >
+<form [formGroup]="itemForm" #f="ngForm" (ngSubmit)="editItem(itemForm.value)">
     <input type="text" class="fortextbox" name="title" placeholder="title" formControlName="title">
+    <span *ngIf="f.submitted && title?.invalid" class="alert">
+        can't leave empty</span>
     <br/>
     <input type="text" class="fortextbox" name="price" placeholder="price" formControlName="price">
+    <span *ngIf="f.submitted && price?.invalid" class="alert">
+        can't leave empty</span>
     <br/>
     <input type="text" class="fortextbox" name="description" placeholder="description" formControlName="description">
+    <span *ngIf="f.submitted && description?.invalid" class="alert">
+        can't leave empty</span>
     <br/>
-    <input type="submit" class="forsubmit" value="edit Item" >
-    </form>
+    <input type="submit" class="forsubmit" value="edit Item">
+</form>

@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { User } from '../app.component';
 import { ServerApiService } from '../server-api.service';
 import { TempUserService } from '../temp-user.service';
 import { UserService } from '../user.service';
@@ -11,7 +12,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit, OnDestroy {
-  users: any;
+  users !: User[];
   subscription !: Subscription;
   constructor(
     private api: ServerApiService,
@@ -42,12 +43,12 @@ export class UsersComponent implements OnInit, OnDestroy {
     );
   }
 
-  editUser(data: any) {
+  editUser(data: User) {
     this.tempUser.setUser(data);
 
     this.router.navigate(['/edit']);
   }
-  deleteUser(data: any) {
+  deleteUser(data: User) {
     this.userService.deleteUser(data, (err: any, res: any) => {
       if (err) {
         console.log(err);

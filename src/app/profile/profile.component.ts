@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ServerApiService } from '../server-api.service';
 import { UserService } from '../user.service';
 import {SocketioService} from '../socketio.service'
+import { User } from '../app.component';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +11,7 @@ import {SocketioService} from '../socketio.service'
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  user: any;
+  user !: User;
   constructor(private userService: UserService, private router: Router, private api:ServerApiService,) {}
 
   ngOnInit(): void {

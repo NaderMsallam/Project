@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Item } from './app.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TempItemService {
-  item:any;
+  item !:Item;
   constructor() { }
-  setItem(item:any){
+  setItem(item:Item){
     this.item=item;
   }
 }

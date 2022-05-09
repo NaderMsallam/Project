@@ -11,7 +11,7 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  form: any;
+  form !: FormGroup;
   checked:boolean =false;
   unauthorized: boolean = false;
   constructor(private UserService: UserService, private router: Router, private socketService: SocketioService) {}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Item } from '../app.component';
 import { OrderService } from '../order.service';
 import{ShopCartService} from '../shop-cart.service';
 import { UserService } from '../user.service';
@@ -9,7 +10,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./shop-cart.component.css']
 })
 export class ShopCartComponent implements OnInit {
-  products:any;
+  products:Item[]=[];
   sum:number=0;
   
   constructor(private ShopCartService: ShopCartService, private user: UserService, private orderService: OrderService) { }

@@ -11,7 +11,7 @@ import {PassValidatorService} from '../pass-validator.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  form: any;
+  form !: FormGroup;
   registered: boolean = true;
   fileData: any;
   previewUrl: any;
@@ -65,13 +65,13 @@ export class RegisterComponent implements OnInit {
     return this.form.get('id');
   }
   get street(){
-    return this.form.get('address').get('street');
+    return this.form.get('address')!.get('street');
   }
   get state(){
-    return this.form.get('address').get('state');
+    return this.form.get('address')!.get('state');
   }
   get zip(){
-    return this.form.get('address').get('zip');
+    return this.form.get('address')!.get('zip');
   }
   get photo(){
     return this.form.get('photo');

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Item } from './app.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopCartService {
-  shopCart:any[]=[];
+  shopCart:Item[]=[];
 
   constructor() { }
   
