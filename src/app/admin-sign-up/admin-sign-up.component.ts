@@ -6,15 +6,16 @@ import { Router } from '@angular/router';
 import {PassValidatorService} from '../pass-validator.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  selector: 'app-admin-sign-up',
+  templateUrl: './admin-sign-up.component.html',
+  styleUrls: ['./admin-sign-up.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class AdminSignUpComponent implements OnInit {
+
   form !: FormGroup;
   registered: boolean = true;
-  fileData: any;
   NotApproved :boolean=false;
+  fileData: any;
   previewUrl: any;
   constructor(private UserService: UserService, private router: Router,private PassValidatorService: PassValidatorService) {}
 
@@ -28,15 +29,15 @@ export class RegisterComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
       confirmPassword: new FormControl('', [Validators.required]),
-      phone: new FormControl('', Validators.required),
+      phone: new FormControl('', [Validators.required]),
       photo: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
-      id: new FormControl('', Validators.required),
-      role: new FormControl('customer', Validators.required),
+      id: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      role: new FormControl('Admin', Validators.required),
       address: new FormGroup({
         street: new FormControl('', Validators.required),
         state: new FormControl('', Validators.required),
-        zip: new FormControl('', Validators.required),
+        zip: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
       }),
     },{
       validators: [PassValidatorService.match('password', 'confirmPassword')]
@@ -84,6 +85,7 @@ export class RegisterComponent implements OnInit {
     formValue.photo = this.previewUrl;
     console.log(formValue);
     this.UserService.register(formValue, (err: any, res: any) => {
+     
       if (!res) {  this.NotApproved=true;
         alert('error registering, probably a duplicate email');
       

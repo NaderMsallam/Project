@@ -39,6 +39,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { AuthInterceptor } from './interceptor.service';
 import {MatCheckboxModule} from '@angular/material/checkbox'
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
+import { AdminSignUpComponent } from './admin-sign-up/admin-sign-up.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -67,6 +68,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
     FooterComponent,
     ChatComponent,
     ContactComponent,
+    AdminSignUpComponent,
   ],
   imports: [
     BrowserModule,

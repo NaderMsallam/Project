@@ -12,7 +12,7 @@ import { User } from './app.component';
 export class UserService {
   user: any;
   registered = new Subject();
-  token:any;
+
   constructor(
     private api: ServerApiService,
     private isloggedIn: IsLoggedInService,

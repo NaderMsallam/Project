@@ -7,7 +7,7 @@
             <input type="text" class="fortextbox" name="email" placeholder="email" formControlName="email" />
         </div>
         <span *ngIf="f.submitted && email?.invalid" class="alert">
-      <span *ngIf="email?.errors?.['required']"> Email is required. </span>
+    <span *ngIf="email?.errors?.['required']"> Email is required. </span>
         <span *ngIf="email?.errors?.['email']"> wrong email format. </span>
         </span>
 
@@ -17,27 +17,27 @@
             <input type="password" class="fortextbox" name="password" placeholder="password" formControlName="password" />
         </div>
         <span *ngIf="f.submitted && password?.invalid" class="alert">
-      can't leave empty</span
-    >
+    can't leave empty</span
+  >
 
-    <br />
-    <div>
-      <label for="">Confirm Password: </label>
-      <input
-        type="password"
-        class="fortextbox"
-        name="confirmPassword"
-        placeholder="confirmPassword"
-        formControlName="confirmPassword"
-      />
-    </div>
-    <span *ngIf="f.submitted && confirmPassword?.invalid" class="alert">
-      <span *ngIf="confirmPassword?.errors?.['required']">
-        can't leave empty
-      </span>
+  <br />
+  <div>
+    <label for="">Confirm Password: </label>
+    <input
+      type="password"
+      class="fortextbox"
+      name="confirmPassword"
+      placeholder="confirmPassword"
+      formControlName="confirmPassword"
+    />
+  </div>
+  <span *ngIf="f.submitted && confirmPassword?.invalid" class="alert">
+    <span *ngIf="confirmPassword?.errors?.['required']">
+      can't leave empty
+    </span>
         <span *ngIf="confirmPassword?.errors?.['matching']">
-        passwords dont match
-      </span>
+      passwords dont match
+    </span>
         </span>
 
         <br />
@@ -46,117 +46,107 @@
             <input type="text" class="fortextbox" name="name" placeholder="name" formControlName="name" />
         </div>
         <span *ngIf="f.submitted && name?.invalid" class="alert">
-      can't leave empty</span
-    >
+    can't leave empty</span
+  >
 
-    <br />
-    <div>
-      <label for="">Last Name: </label>
-      <input
-        type="text"
-        class="fortextbox"
-        name="lastName"
-        placeholder="lastName"
-        formControlName="lastName"
-      />
-    </div>
-    <span *ngIf="f.submitted && lastName?.invalid" class="alert">
-      can't leave empty</span
-    >
-
-    <br />
-    <div>
-      <label for="">ID: </label>
-      <input
-        type="text"
-        class="fortextbox"
-        name="id"
-        placeholder="id"
-        formControlName="id"
-      />
-    </div>
-    <span *ngIf="f.submitted && id?.invalid" class="alert">
-      can't leave empty</span
-    >
-
-    <br />
-    <div>
-      <label for="">Phone: </label>
-      <input
-        type="text"
-        class="fortextbox"
-        name="phone"
-        placeholder="phone"
-        formControlName="phone"
-      />
-    </div>
-    <span *ngIf="f.submitted && phone?.invalid" class="alert">
-      can't leave empty</span
-    >
-
-    <br />
-    <Section formGroupName="address">
-     
-      <br />
-       <h3>Address: </h3>
-      <div>
-        <label for="street">Street: </label>
-        <input
-          name="street"
-          class="fortextbox"
-          type="text"
-          formControlName="street"
-        />
-      </div>
-      <span *ngIf="f.submitted && street?.invalid" class="alert">
-        can't leave empty</span
-      >
-
-      <br />
-      <div>
-        <label for="state">State: </label>
-        <input
-          name="state"
-          class="fortextbox"
-          type="text"
-          formControlName="state"
-        />
-      </div>
-      <span *ngIf="f.submitted && state?.invalid" class="alert">
-        can't leave empty</span
-      >
-
-      <br />
-      <div>
-        <label for="zip">Zip Code: </label>
-        <input
-          name="zip"
-          class="fortextbox"
-          type="text"
-          formControlName="zip"
-        />
-      </div>
-      <span *ngIf="f.submitted && zip?.invalid" class="alert">
-        can't leave empty</span
-      >
-    </Section>
-    <br />
-    <label for="">Photo: </label>
+  <br />
+  <div>
+    <label for="">Last Name: </label>
     <input
-      type="file"
+      type="text"
       class="fortextbox"
-      name="photo"
-      placeholder="photo"
-      formControlName="photo"
-      (change)="fileProgress($event)"
+      name="lastName"
+      placeholder="lastName"
+      formControlName="lastName"
     />
-    <span *ngIf="f.submitted && photo?.invalid" class="alert">
-      please choose a profile picture</span
-    >
+  </div>
+  <span *ngIf="f.submitted && lastName?.invalid" class="alert">
+    can't leave empty</span
+  >
+
+  <br />
+  <div>
+    <label for="">ID: </label>
+    <input
+      type="text"
+      class="fortextbox"
+      name="id"
+      placeholder="id"
+      formControlName="id"
+    />
+  </div>
+  <span *ngIf="f.submitted && id?.invalid" class="alert">
+      <span *ngIf="id?.errors?.['required']"> cant leave empty. </span>
+        <span *ngIf="id?.errors?.['pattern']"> numbers only </span></span>
+
+        <br />
+        <div>
+            <label for="">Phone: </label>
+            <input type="text" class="fortextbox" name="phone" placeholder="phone" formControlName="phone" />
+        </div>
+        <span *ngIf="f.submitted && phone?.invalid" class="alert">
+    can't leave empty
+    </span
+  >
+
+  <br />
+  <Section formGroupName="address">
+   
     <br />
+     <h3>Address: </h3>
+    <div>
+      <label for="street">Street: </label>
+      <input
+        name="street"
+        class="fortextbox"
+        type="text"
+        formControlName="street"
+      />
+    </div>
+    <span *ngIf="f.submitted && street?.invalid" class="alert">
+      can't leave empty</span
+    >
+
     <br />
     <div>
-      <input type="submit" class="forsubmit" value="Register" />
+      <label for="state">State: </label>
+      <input
+        name="state"
+        class="fortextbox"
+        type="text"
+        formControlName="state"
+      />
     </div>
-  </mat-card>
+    <span *ngIf="f.submitted && state?.invalid" class="alert">
+      can't leave empty</span
+    >
+
+    <br />
+    <div>
+      <label for="zip">Zip Code: </label>
+      <input
+        name="zip"
+        class="fortextbox"
+        type="text"
+        formControlName="zip"
+      />
+    </div>
+    <span *ngIf="f.submitted && zip?.invalid" class="alert">
+      <span *ngIf="zip?.errors?.['required']"> cant leave empty. </span>
+        <span *ngIf="zip?.errors?.['pattern']"> numbers only </span>
+        </span>
+        </Section>
+        <br />
+        <label for="">Photo: </label>
+        <input type="file" class="fortextbox" name="photo" placeholder="photo" formControlName="photo" (change)="fileProgress($event)" />
+        <span *ngIf="f.submitted && photo?.invalid" class="alert">
+    please choose a profile picture</span
+  >
+  <br />
+  <br />
+  <div>
+    <input type="submit" class="forsubmit" value="Register" />
+  </div>
+  <div class="alert" *ngIf="NotApproved"> email or id already in use </div>
+</mat-card>
 </form>

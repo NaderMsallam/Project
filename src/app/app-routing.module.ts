@@ -17,6 +17,7 @@ import { ProductsComponent } from './products/products.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ShopCartComponent } from './shop-cart/shop-cart.component';
 import { ContactComponent } from './contact/contact.component';
+import { AdminSignUpComponent } from './admin-sign-up/admin-sign-up.component';
 
 
 
@@ -37,8 +38,10 @@ const routes: Routes = [
   { path: 'editItem', component: EditItemComponent, canActivate:[AuthGuard] },
   { path: 'users', component: UsersComponent, canActivate:[AuthGuard] },
   { path: 'password', component:ChangePasswordComponent, canActivate:[AuthGuard] },
+  {path: 'Admin', component: AdminSignUpComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
+  
  
 ];
 
