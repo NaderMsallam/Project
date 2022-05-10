@@ -143,7 +143,7 @@ app.get("*", (req, res) => {
 });
 
 Server.listen(3051, () => {
-    console.log("listening on https on port 3000");
+    console.log("listening on https on port 3051");
 })
 http.listen(3051, () => {
     console.log("listening on *:3051");
