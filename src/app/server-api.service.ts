@@ -15,63 +15,63 @@ export class ServerApiService {
   
   login(user: String) {
       
-    return this.http.post('http://localhost:3000/login', user, this.httpOptions);
+    return this.http.post('http://localhost:3051/login', user, this.httpOptions);
   }
 
   logout(){
-    return this.http.get('http://localhost:3000/logout', this.httpOptions);
+    return this.http.get('http://localhost:3051/logout', this.httpOptions);
   }
   register(user: String) {
     
-    return this.http.post('http://localhost:3000/register', user, this.httpOptions);
+    return this.http.post('http://localhost:3051/register', user, this.httpOptions);
   }
 
   editUser(user: String) {
     
-    return this.http.post('http://localhost:3000/edit', user, this.httpOptions);
+    return this.http.post('http://localhost:3051/edit', user, this.httpOptions);
   }
 
   changePassword(user: String) {
     
-    return this.http.post('http://localhost:3000/changePassword', user, this.httpOptions);
+    return this.http.post('http://localhost:3051/changePassword', user, this.httpOptions);
   }
 
   getUserByToken() {
-    return this.http.get('http://localhost:3000/getUserByToken', this.httpOptions);
+    return this.http.get('http://localhost:3051/getUserByToken', this.httpOptions);
   }
 
   getAllUsers(){
-    return this.http.get('http://localhost:3000/getAllUsers', this.httpOptions);
+    return this.http.get('http://localhost:3051/getAllUsers', this.httpOptions);
   }
 
   deleteUser(user:String) {
-    return this.http.post('http://localhost:3000/deleteUser',user, this.httpOptions);
+    return this.http.post('http://localhost:3051/deleteUser',user, this.httpOptions);
   }
 
   getAllItems(){
-    return this.http.get('http://localhost:3000/getAllItems', this.httpOptions);
+    return this.http.get('http://localhost:3051/getAllItems', this.httpOptions);
   }
 
   addItem(item:String) {
-    return this.http.post('http://localhost:3000/addItem',item, this.httpOptions);
+    return this.http.post('http://localhost:3051/addItem',item, this.httpOptions);
   }
   
   deleteItem(item:String) {
-    return this.http.post('http://localhost:3000/deleteItem',item, this.httpOptions);
+    return this.http.post('http://localhost:3051/deleteItem',item, this.httpOptions);
   }
 
   editItem(item:String) {
-    return this.http.post('http://localhost:3000/editItem',item, this.httpOptions);
+    return this.http.post('http://localhost:3051/editItem',item, this.httpOptions);
   }
 
   addOrder(order:String) {
-    return this.http.post('http://localhost:3000/addOrder',order, this.httpOptions);
+    return this.http.post('http://localhost:3051/addOrder',order, this.httpOptions);
   }
   getAllOrders(email:String) {
-    return this.http.get(`http://localhost:3000/getAllOrders?email=${email}`, this.httpOptions);
+    return this.http.get(`http://localhost:3051/getAllOrders?email=${email}`, this.httpOptions);
   }
   AdminGetAllOrders() {
-    return this.http.get(`http://localhost:3000/AdminGetAllOrders`, this.httpOptions);
+    return this.http.get(`http://localhost:3051/AdminGetAllOrders`, this.httpOptions);
   }
  
 }

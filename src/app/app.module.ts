@@ -1,5 +1,5 @@
 import { NgModule, Provider } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule,Title } from '@angular/platform-browser';
 import { RouterModule} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -90,7 +90,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
     MatFormFieldModule,
     MatSnackBarModule
   ],
-  providers: [SocketioService, INTERCEPTOR_PROVIDER],
+  providers: [SocketioService, Title, INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

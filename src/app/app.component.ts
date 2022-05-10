@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { SocketioService } from './socketio.service';
 
 @Component({
@@ -9,12 +10,12 @@ import { SocketioService } from './socketio.service';
 
 export class AppComponent implements OnInit, OnDestroy{
   
-  title = 'exercise';
+  title = 'FishFish';
   
-  constructor(private socketService: SocketioService) {}
+  constructor(private socketService: SocketioService, private thetitle:Title) {}
   
   ngOnInit() {
-    
+    this.thetitle.setTitle("FishFish")
   }
 
   ngOnDestroy() {
