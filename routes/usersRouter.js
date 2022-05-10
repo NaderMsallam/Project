@@ -33,7 +33,10 @@ router.post("/register", async function(req, res) {
         address: address,
         role: role,
     };
-    res.json(await userService.registerUser(data));
+    try { res.json(await userService.registerUser(data)); } catch (e) {
+        console.log(e);
+        res.json(null);
+    }
 });
 
 //delete existing user

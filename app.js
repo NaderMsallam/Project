@@ -136,14 +136,15 @@ io.on("connection", (socket) => {
 
 });
 
-app.get("/", (req, res) => {
+
+app.get("*", (req, res) => {
     res.set({ "Access-control-Allow-origin": "*" });
     return res.redirect("index.html");
 });
 
-// Server.listen(3000, () => {
-//     console.log("listening on https on port 3000");
-// })
-http.listen(3000, () => {
-    console.log("listening on *:3000");
+Server.listen(3051, () => {
+    console.log("listening on https on port 3000");
+})
+http.listen(3051, () => {
+    console.log("listening on *:3051");
 });
