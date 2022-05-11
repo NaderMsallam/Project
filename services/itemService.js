@@ -1,7 +1,7 @@
 const { itemModel } = require("../models/items");
 const { mongoose } = require("mongoose");
 
-console.log(itemModel);
+
 const db = mongoose.connection;
 
 db.on("error", console.log.bind(console, "connection error"));

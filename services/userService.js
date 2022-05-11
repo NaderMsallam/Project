@@ -43,8 +43,7 @@ class userService {
             try {
                 console.log(await bcrypt.compare(data.password, user.password));
                 if (await bcrypt.compare(data.password, user.password)) {
-                    console.log("hada ho 2");
-                    console.log(user);
+
 
                     return user;
                 } else {
@@ -55,7 +54,7 @@ class userService {
                 console.log("no user found");
             }
 
-            console.log(user);
+
             return user;
         }
         // get all user info based on email given

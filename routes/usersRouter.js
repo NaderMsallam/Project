@@ -19,8 +19,7 @@ router.post("/register", async function(req, res) {
     const phone = req.body.phone;
     const photo = req.body.photo;
     const role = req.body.role;
-    console.log("here:");
-    console.log(req.body);
+
 
     const data = {
         name: name,
@@ -74,8 +73,7 @@ router.post("/edit", validateToken, async function(req, res) {
     const phone = req.body.phone;
     const photo = req.body.photo;
 
-    console.log("here:");
-    console.log(req.body);
+
 
     const data = {
         name: name,
