@@ -29,8 +29,8 @@ mongoose.connect(
     "mongodb://localhost:27017/NaderMsallam"
 );
 
-const HTTPS_PORT = 3071;
-const HTTP_PORT = 3072;
+const HTTPS_PORT = 3072;
+const HTTP_PORT = 3071;
 
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/rt-dev.xyz/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/rt-dev.xyz/cert.pem', 'utf8');
