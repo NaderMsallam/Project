@@ -29,7 +29,8 @@ mongoose.connect(
     "mongodb://localhost:27017/NaderMsallam"
 );
 
-const PORT = 3071;
+const HTTPS_PORT = 3071;
+const HTTP_PORT = 3072;
 
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/rt-dev.xyz/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/rt-dev.xyz/cert.pem', 'utf8');
@@ -142,9 +143,9 @@ app.get("*", (req, res) => {
     return res.redirect("index.html");
 });
 
-Server.listen(PORT, () => {
+Server.listen(HTTPS_PORT, () => {
     console.log("listening on https on port 3071");
 })
-http.listen(PORT, () => {
-    console.log("listening on *:3071");
+http.listen(HTTP_PORT, () => {
+    console.log("listening on *:3072");
 });
