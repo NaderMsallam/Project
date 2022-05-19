@@ -11,7 +11,7 @@ const itemRouter = require("./routes/itemRouter");
 const orderRouter = require("./routes/orderRouter");
 const { orderService } = require("./services/orderService");
 const { itemService } = require("./services/itemService");
-
+const url = require("url");
 const { chatHistoryService } = require("./services/chatHistoryService")
 
 const app = express();
@@ -45,7 +45,7 @@ const Server = https.createServer(credentials, app);
 
 const http = require("http").createServer((req, res) => {
     let pathname = url.parse(req.url).pathname;
-    res.writeHead(301, { Location: "https://" + pathname });
+    res.writeHead(301, { Location: "https://localhost:3072" + pathname });
     res.end();
 });
 
