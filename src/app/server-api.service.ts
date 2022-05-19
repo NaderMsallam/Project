@@ -15,63 +15,63 @@ export class ServerApiService {
   
   login(user: String) {
       
-    return this.http.post('http://localhost:3071/login', user, this.httpOptions);
+    return this.http.post('https://localhost:3072/login', user, this.httpOptions);
   }
 
   logout(){
-    return this.http.get('http://localhost:3071/logout', this.httpOptions);
+    return this.http.get('https://localhost:3072/logout', this.httpOptions);
   }
   register(user: String) {
     
-    return this.http.post('http://localhost:3071/register', user, this.httpOptions);
+    return this.http.post('https://localhost:3072/register', user, this.httpOptions);
   }
 
   editUser(user: String) {
     
-    return this.http.post('http://localhost:3071/edit', user, this.httpOptions);
+    return this.http.post('https://localhost:3072/edit', user, this.httpOptions);
   }
 
   changePassword(user: String) {
     
-    return this.http.post('http://localhost:3071/changePassword', user, this.httpOptions);
+    return this.http.post('https://localhost:3072/changePassword', user, this.httpOptions);
   }
 
   getUserByToken() {
-    return this.http.get('http://localhost:3071/getUserByToken', this.httpOptions);
+    return this.http.get('https://localhost:3072/getUserByToken', this.httpOptions);
   }
 
   getAllUsers(){
-    return this.http.get('http://localhost:3071/getAllUsers', this.httpOptions);
+    return this.http.get('https://localhost:3072/getAllUsers', this.httpOptions);
   }
 
   deleteUser(user:String) {
-    return this.http.post('http://localhost:3071/deleteUser',user, this.httpOptions);
+    return this.http.post('https://localhost:3072/deleteUser',user, this.httpOptions);
   }
 
   getAllItems(){
-    return this.http.get('http://localhost:3071/getAllItems', this.httpOptions);
+    return this.http.get('https://localhost:3072/getAllItems', this.httpOptions);
   }
 
   addItem(item:String) {
-    return this.http.post('http://localhost:3071/addItem',item, this.httpOptions);
+    return this.http.post('https://localhost:3072/addItem',item, this.httpOptions);
   }
   
   deleteItem(item:String) {
-    return this.http.post('http://localhost:3071/deleteItem',item, this.httpOptions);
+    return this.http.post('https://localhost:3072/deleteItem',item, this.httpOptions);
   }
 
   editItem(item:String) {
-    return this.http.post('http://localhost:3071/editItem',item, this.httpOptions);
+    return this.http.post('https://localhost:3072/editItem',item, this.httpOptions);
   }
 
   addOrder(order:String) {
-    return this.http.post('http://localhost:3071/addOrder',order, this.httpOptions);
+    return this.http.post('https://localhost:3072/addOrder',order, this.httpOptions);
   }
   getAllOrders(email:String) {
-    return this.http.get(`http://localhost:3071/getAllOrders?email=${email}`, this.httpOptions);
+    return this.http.get(`https://localhost:3072/getAllOrders?email=${email}`, this.httpOptions);
   }
   AdminGetAllOrders() {
-    return this.http.get(`http://localhost:3071/AdminGetAllOrders`, this.httpOptions);
+    return this.http.get(`https://localhost:3072/AdminGetAllOrders`, this.httpOptions);
   }
  
 }
