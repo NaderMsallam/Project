@@ -20,7 +20,7 @@ app.use(bodyParser.json({ limit: "25mb" }));
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(cors({ credentials: true, origin: "http://localhost:4200" }));
+app.use(cors({ credentials: true }));
 app.use(userRrouter);
 app.use(itemRouter);
 app.use(orderRouter);
@@ -45,7 +45,7 @@ const Server = https.createServer(credentials, app);
 
 const http = require("http").createServer((req, res) => {
     let pathname = url.parse(req.url).pathname;
-    res.writeHead(301, { Location: "https://localhost:3072" + pathname });
+    res.writeHead(301, { Location: "https://rt-dev.xyz:3072" + pathname });
     res.end();
 });
 
@@ -138,7 +138,7 @@ io.on("connection", (socket) => {
 });
 
 
-app.get("*", (req, res) => {
+app.all("*", (req, res) => {
     res.set({ "Access-control-Allow-origin": "*" });
     return res.redirect("index.html");
 });
