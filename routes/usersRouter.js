@@ -72,7 +72,7 @@ router.post("/edit", validateToken, async function(req, res) {
     const pass = req.body.password;
     const phone = req.body.phone;
     const photo = req.body.photo;
-
+    const oldEmail = req.body.oldEmail;
 
 
     const data = {
@@ -84,6 +84,7 @@ router.post("/edit", validateToken, async function(req, res) {
         lastName: lastName,
         id: id,
         address: address,
+        oldEmail: oldEmail
     };
 
     res.json(await userService.editUser(data));

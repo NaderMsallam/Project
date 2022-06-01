@@ -45,7 +45,7 @@ class itemService {
 
     //edit item based on it's _id
     async editItem(data) {
-        return await itemModel.findOneAndUpdate({ title: data.title }, {
+        return await itemModel.findOneAndUpdate({ title: data.oldTitle }, {
 
             title: data.title,
             description: data.description,

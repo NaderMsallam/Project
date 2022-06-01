@@ -18,7 +18,7 @@ class userService {
 
     //edit existing user based on email given
     async editUser(data) {
-        return await UsersModel.findOneAndUpdate({ email: data.email }, {
+        return await UsersModel.findOneAndUpdate({ email: data.oldEmail }, {
                 email: data.email,
                 name: data.name,
                 phone: data.phone,
