@@ -32,8 +32,7 @@ export class OrdersComponent implements OnInit, OnDestroy{
 
     if(this.isAdmin){
       this.subscription=this.api.AdminGetAllOrders().subscribe((res:any)=>{
-        console.log(res[0].order);
-        console.log(res[6].order);
+       
         console.log('theOrders'+ res);
         this.orders=res;
         for(let i = 0; i < this.orders.length; i++){

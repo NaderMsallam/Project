@@ -30,7 +30,7 @@ export class EditItemComponent implements OnInit {
   }
 
   get title(){
-    return this.itemForm.get('name');
+    return this.itemForm.get('title');
   }
   get price(){
     return this.itemForm.get('price');
@@ -41,14 +41,13 @@ export class EditItemComponent implements OnInit {
 
   editItem(formValue: any) {
     if(this.itemForm.valid){
-    console.log('da da');
-
+    
     console.log(formValue);
     
     console.log(formValue);
     this.itemService.editItem(formValue, (err: any, res: any) => {
       if (res == 'err') {
-        alert('nonono');
+        alert('error input');
       } else {
         console.log(res);
 
