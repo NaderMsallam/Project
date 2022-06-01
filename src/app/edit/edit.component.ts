@@ -27,7 +27,7 @@ export class EditComponent implements OnInit {
     private UserService: UserService,
     private router: Router,
     private tempUser: TempUserService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.changedPhoto = false;
@@ -45,7 +45,7 @@ export class EditComponent implements OnInit {
         Validators.required,
         Validators.email,
       ]),
-      
+
       phone: new FormControl(this.user.phone, Validators.required),
       photo: new FormControl(this.user.photo, Validators.required),
       lastName: new FormControl(this.user.lastName, Validators.required),
@@ -56,64 +56,78 @@ export class EditComponent implements OnInit {
         state: new FormControl(this.user.address.state, Validators.required),
         zip: new FormControl(this.user.address.zip, Validators.required),
       }),
-    },{updateOn: 'submit'});
+    }, { updateOn: 'submit' });
   }
 
-  get name(){
+  get name() {
     return this.form.get('name');
   }
-  get email(){
+  get email() {
     return this.form.get('email');
   }
-  get password(){
+  get password() {
     return this.form.get('password');
   }
-  get confirmPassword(){
+  get confirmPassword() {
     return this.form.get('confirmPassword');
   }
-  get phone(){
+  get phone() {
     return this.form.get('phone');
   }
-  get lastName(){
+  get lastName() {
     return this.form.get('lastName');
   }
-  get id(){
+  get id() {
     return this.form.get('id');
   }
-  get street(){
+  get street() {
     return this.form.get('address')!.get('street');
   }
-  get state(){
+  get state() {
     return this.form.get('address')!.get('state');
   }
-  get zip(){
+  get zip() {
     return this.form.get('address')!.get('zip');
   }
 
   editUser(formValue: any) {
-    if(this.form.valid){
-    console.log('hoon');
-    if (this.changedPhoto) {
-      formValue.photo = this.previewUrl;
-    } else {
-      formValue.photo = this.user.photo;
-    }
-
-    console.log(formValue);
-    this.UserService.editUser(formValue, (err: any, res: any) => {
-      if (res == 'err') {
-        alert('nonono');
-       
+    if (this.form.valid) {
+      console.log('hoon');
+      if (this.changedPhoto) {
+        formValue.photo = this.previewUrl;
       } else {
-        console.log(res);
-        if (this.tempUser.AccessedByAdmin) {
-          this.router.navigate(['/users']);
-        } else {
-          this.router.navigate(['/profile']);
-        }
+        formValue.photo = this.user.photo;
       }
-    });
-  }
+      formValue.oldEmail = this.user.email;
+      console.log(formValue);
+
+      if (this, this.tempUser.AccessedByAdmin) {
+        this.UserService.AdminEditUser(formValue, (err: any, res: any) => {
+          if (res == 'err') {
+            alert('error editing user');
+
+          } else {
+            console.log(res);
+
+            this.router.navigate(['/users']);
+
+          }
+        });
+      }
+      else {
+        this.UserService.editUser(formValue, (err: any, res: any) => {
+          if (res == 'err') {
+            alert('error editing user');
+
+          } else {
+            console.log(res);
+
+            this.router.navigate(['/profile']);
+
+          }
+        });
+      }
+    }
   }
 
   fileProgress(file: any) {
@@ -128,5 +142,5 @@ export class EditComponent implements OnInit {
       };
     }
   }
-  
+
 }

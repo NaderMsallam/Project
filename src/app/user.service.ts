@@ -49,6 +49,18 @@ export class UserService {
       }
     );
   }
+  AdminEditUser(user: any, callback: any) {
+    this.api.editUser(user).subscribe(
+      (res) => {
+        console.log(res);
+        callback(null, res);
+      },
+      (error) => {
+        console.log(error);
+        callback(error, null);
+      }
+    );
+  }
 
   editUser(user: any, callback: any) {
     this.api.editUser(user).subscribe(

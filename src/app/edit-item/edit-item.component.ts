@@ -42,12 +42,11 @@ export class EditItemComponent implements OnInit {
   editItem(formValue: any) {
     if(this.itemForm.valid){
     
-    console.log(formValue);
-    
+    formValue.oldTitle=this.tempItem.item.title;
     console.log(formValue);
     this.itemService.editItem(formValue, (err: any, res: any) => {
       if (res == 'err') {
-        alert('error input');
+        alert('error');
       } else {
         console.log(res);
 
